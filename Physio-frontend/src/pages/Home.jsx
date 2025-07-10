@@ -8,14 +8,14 @@ export default function Home() {
   const images = [
    "./images/physio1.jpg",
    "./images/physio2.jpg",  
-    "./images/physio3.jpg",
+   "./images/physio3.jpg",
     "./images/physio4.jpg",
     "./images/pexels1.jpg",
-    "./images/pexels2.jpg",
-     "./images/pexels3.jpg",
-      "./images/pexels4.jpg",
-       "./images/pexels5.jpg",
-  ];
+     "./images/pexels2.jpg",
+      "./images/pexels3.jpg",
+       "./images/pexels4.jpg",
+        "./images/pexels5.jpg",
+];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
