@@ -1,0 +1,99 @@
+[
+  {
+    "category": "Orthopedic Physiotherapy",
+    "items": [
+      {
+        "title": "Joint Pain Treatment",
+        "desc": "Relieve pain from knees, hips, shoulders and more.",
+        "icon": "FaBone",
+        "color": "text-blue-600"
+      },
+      {
+        "title": "Post-Fracture Rehab",
+        "desc": "Regain strength and mobility after fractures or surgeries.",
+        "icon": "FaHandsHelping",
+        "color": "text-blue-600"
+      },
+      {
+        "title": "Arthritis Management",
+        "desc": "Reduce stiffness and increase joint flexibility.",
+        "icon": "FaBone",
+        "color": "text-blue-600"
+      }
+    ]
+  },
+  {
+    "category": "Neurological Physiotherapy",
+    "items": [
+      {
+        "title": "Stroke Rehabilitation",
+        "desc": "Restore movement and function after a stroke.",
+        "icon": "FaBrain",
+        "color": "text-purple-600"
+      },
+      {
+        "title": "Parkinson's Therapy",
+        "desc": "Improve mobility and coordination for Parkinson’s patients.",
+        "icon": "FaBrain",
+        "color": "text-purple-600"
+      },
+      {
+        "title": "Spinal Cord Injury Rehab",
+        "desc": "Therapies to support nerve and motor function recovery.",
+        "icon": "FaBrain",
+        "color": "text-purple-600"
+      }
+    ]
+  },
+  {
+    "category": "Pediatric Physiotherapy",
+    "items": [
+      {
+        "title": "Developmental Delays",
+        "desc": "Therapy for delayed motor development in children.",
+        "icon": "FaChild",
+        "color": "text-pink-500"
+      },
+      {
+        "title": "Cerebral Palsy Care",
+        "desc": "Supportive therapy to enhance mobility and strength.",
+        "icon": "FaChild",
+        "color": "text-pink-500"
+      }
+    ]
+  },
+  {
+    "category": "Cardiopulmonary Physiotherapy",
+    "items": [
+      {
+        "title": "Cardiac Rehab",
+        "desc": "Recovery support after cardiac surgery or heart attacks.",
+        "icon": "FaHeartbeat",
+        "color": "text-red-500"
+      },
+      {
+        "title": "Pulmonary Rehab",
+        "desc": "Help breathing issues like asthma and COPD.",
+        "icon": "FaHeartbeat",
+        "color": "text-red-500"
+      }
+    ]
+  },
+  {
+    "category": "Sports Injury Rehabilitation",
+    "items": [
+      {
+        "title": "Sprains & Strains",
+        "desc": "Targeted therapies to speed up recovery from injuries.",
+        "icon": "FaHandsHelping",
+        "color": "text-green-600"
+      },
+      {
+        "title": "Post-Surgery Recovery",
+        "desc": "Personalized plans for athletes after ACL, shoulder, or other surgeries.",
+        "icon": "FaHandsHelping",
+        "color": "text-green-600"
+      }
+    ]
+  }
+]

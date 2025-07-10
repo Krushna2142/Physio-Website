@@ -4,18 +4,17 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
 
-  // Image Slider State
   const images = [
-   "./images/physio1.jpg",
-   "./images/physio2.jpg",  
-   "./images/physio3.jpg",
+    "./images/physio1.jpg",
+    "./images/physio2.jpg",
+    "./images/physio3.jpg",
     "./images/physio4.jpg",
     "./images/pexels1.jpg",
-     "./images/pexels2.jpg",
-      "./images/pexels3.jpg",
-       "./images/pexels4.jpg",
-        "./images/pexels5.jpg",
-];
+    "./images/pexels2.jpg",
+    "./images/pexels3.jpg",
+    "./images/pexels4.jpg",
+    "./images/pexels5.jpg",
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -23,8 +22,7 @@ export default function Home() {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // Change image every 3 seconds
-
+    }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -32,7 +30,6 @@ export default function Home() {
     <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
       <div className="flex justify-between items-center mb-20">
-        {/* Left */}
         <div className="w-1/2 pr-10">
           <h1 className="text-5xl font-bold text-blue-900 mb-6">
             Revive. Restore. Rejuvenate.
@@ -47,8 +44,6 @@ export default function Home() {
             Book an Appointment
           </button>
         </div>
-
-        {/* Right - Image Slider */}
         <div className="w-1/2">
           <img
             src={images[currentIndex]}
@@ -126,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* Our Experts Section */}
-      <section>
+      <section className="mb-20">
         <h2 className="text-4xl font-bold text-blue-900 mb-10">
           Meet Our Experts
         </h2>
@@ -148,6 +143,48 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* 📊 Counters Section */}
+      <section className="mb-20 grid grid-cols-3 gap-10 text-center">
+        {[
+          { label: "Happy Patients", value: "1200+" },
+          { label: "Years of Experience", value: "10+" },
+          { label: "Therapists", value: "15+" },
+        ].map((stat, idx) => (
+          <div key={idx} className="bg-white p-10 rounded-xl shadow">
+            <p className="text-5xl font-bold text-purple-700">{stat.value}</p>
+            <p className="mt-2 text-gray-600 text-lg">{stat.label}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* 🖼️ Gallery Preview */}
+      <section className="mb-20">
+        <h2 className="text-4xl font-bold text-blue-900 mb-10">Gallery</h2>
+        <div className="grid grid-cols-4 gap-4">
+          {images.slice(0, 4).map((img, idx) => (
+            <img
+              key={idx}
+              src={img}
+              alt={`Preview ${idx}`}
+              className="h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* 📣 Final Call to Action */}
+      <section className="text-center mt-20">
+        <h2 className="text-3xl font-bold text-purple-800 mb-4">
+          Begin your recovery journey today!
+        </h2>
+        <button
+          onClick={() => navigate("/contact")}
+          className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-4 rounded-full shadow-lg transition"
+        >
+          Contact Us
+        </button>
       </section>
     </div>
   );

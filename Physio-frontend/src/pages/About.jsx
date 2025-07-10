@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
+  const navigate = useNavigate();
+
   return (
     <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-purple-50 to-blue-100 text-gray-800">
       {/* Header */}
@@ -65,9 +68,12 @@ export default function About() {
         <h3 className="text-2xl font-bold text-blue-900 mb-4">
           Ready to start your healing journey?
         </h3>
-        <button className="bg-black text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition">
-          Book an Appointment
-        </button>
+       <button onClick={() => navigate("/contact")}
+         className="bg-black text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition border-2 border-white"
+>
+  Book an Appointment
+</button>
+
       </div>
     </div>
   );
