@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import AllMessages from "./pages/AllMessages";
+import AdminLogin from "./pages/AdminLogin";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin/messages" element={<AllMessages />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </main>
 

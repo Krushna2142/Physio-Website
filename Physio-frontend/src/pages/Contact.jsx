@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Contact() {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,81 +16,94 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setSuccessMessage("");
+
     try {
       await axios.post("http://localhost:5000/api/contact", formData);
-      setSubmitted(true);
+      setSuccessMessage("✅ Thank you! Your message has been sent.");
       setFormData({ name: "", email: "", message: "" });
-    } catch (err) {
-      console.error("Submission error:", err);
-      setError("❌ Failed to send message. Try again.");
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setSuccessMessage("❌ Failed to send message. Try again.");
     }
   };
 
   return (
-    <div className="w-screen h-screen bg-gradient-to-br from-blue-100 to-white flex items-center justify-center px-4">
-      <div className="bg-white rounded-xl shadow-lg w-full max-w-3xl p-10">
-        <h1 className="text-5xl font-bold text-center text-blue-700 mb-8">
-          Contact Us
-        </h1>
+    <div className="min-h-screen bg-gray-100 py-10 px-4">
+      <h1 className="text-4xl font-bold text-blue-700 mb-10 text-center px-165 pt-20">Contact Us</h1>
 
-        {submitted ? (
-          <p className="text-center text-green-600 text-lg font-medium">
-            ✅ Thank you! Your message has been sent.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block mb-1 font-semibold text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring focus:border-blue-500 text-black"
-              />
-            </div>
-            <div>
-              <label className="block mb-1 font-semibold text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring focus:border-blue-500 text-black"
-              />
-            </div>
-            <div>
-              <label className="block mb-1 font-semibold text-gray-700">
-                Message
-              </label>
-              <textarea
-                name="message"
-                required
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-4 py-2 resize-none focus:ring focus:border-blue-500 text-black"
-              ></textarea>
-            </div>
+      <div className="w-full flex flex-col items-center gap-10 px-70 ">
+        {/* Contact Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="w-full lg:w-3/4 bg-white p-8 shadow-md rounded-lg"
+        >
+          <div className="mb-6">
+            <label className="block text-gray-800 font-medium mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              placeholder="Enter your name"
+            />
+          </div>
 
-            {error && <p className="text-red-600">{error}</p>}
+          <div className="mb-6">
+            <label className="block text-gray-800 font-medium mb-2">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              placeholder="Enter your email"
+            />
+          </div>
 
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded w-full"
-            >
-              Send Message
-            </button>
-          </form>
-        )}
+          <div className="mb-6">
+            <label className="block text-gray-800 font-medium mb-2">Message</label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows="6"
+              className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+              placeholder="Type your message here..."
+            ></textarea>
+          </div>
+
+          {successMessage && (
+            <div className="mb-4 text-green-600 font-semibold">{successMessage}</div>
+          )}
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium transition duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+
+        {/* Google Map */}
+        <div className="w-full lg:w-3/4 h-[400px] rounded-lg overflow-hidden shadow-md">
+          <iframe
+            title="Google Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.590591965655!2d73.84759511489157!3d18.506679787408144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c069db43f351%3A0xa5a2340b918f2e6a!2sAISSMS%20Polytechnic!5e0!3m2!1sen!2sin!4v1628763361817!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Contact;
