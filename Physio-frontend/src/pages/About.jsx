@@ -2,15 +2,72 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="w-screen h-screen px-16 py-20 bg-white text-gray-800">
-      <div className="w-full h-full flex flex-col justify-center">
-        <h1 className="text-5xl font-bold text-blue-900 mb-6">About PhysioCare</h1>
-        <p className="text-xl mb-4 max-w-4xl">
-          At PhysioCare, we’re committed to helping you recover faster and live better. Our team of expert physiotherapists uses modern techniques tailored to your unique needs.
-        </p>
-        <p className="text-xl max-w-4xl">
-          We specialize in orthopedic, neurological, and sports-related therapy with a compassionate approach.
-        </p>
+    <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-purple-50 to-blue-100 text-gray-800">
+      {/* Header */}
+      <h1 className="text-5xl font-bold text-blue-900 mb-8">About PhysioCare</h1>
+
+      {/* Introduction */}
+      <p className="text-lg mb-10 max-w-4xl">
+        PhysioCare is a dedicated physiotherapy clinic committed to helping you
+        live a pain-free, active, and fulfilling life. Our expert team uses
+        advanced techniques to treat injuries, manage chronic pain, and enhance
+        overall physical performance.
+      </p>
+
+      {/* Mission and Vision */}
+      <div className="grid grid-cols-2 gap-10 mb-20">
+        <div className="bg-white p-6 rounded-xl shadow">
+          <h2 className="text-2xl font-bold text-blue-800 mb-2">Our Mission</h2>
+          <p>
+            To provide top-tier physiotherapy care using compassion, evidence-based
+            methods, and a personalized approach.
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-xl shadow">
+          <h2 className="text-2xl font-bold text-blue-800 mb-2">Our Vision</h2>
+          <p>
+            To become the most trusted physiotherapy provider empowering people
+            toward lifelong wellness and mobility.
+          </p>
+        </div>
+      </div>
+
+      {/* Core Values */}
+      <section className="mb-20">
+        <h2 className="text-4xl font-bold text-blue-900 mb-8">Our Core Values</h2>
+        <div className="grid grid-cols-3 gap-8">
+          {[
+            {
+              title: "Compassion",
+              desc: "We care deeply about each patient’s well-being and recovery journey.",
+            },
+            {
+              title: "Excellence",
+              desc: "We use evidence-based techniques and deliver the highest standards of care.",
+            },
+            {
+              title: "Integrity",
+              desc: "We are honest, transparent, and committed to ethical practice.",
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+                {item.title}
+              </h3>
+              <p className="text-gray-700">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <div className="text-center mt-10">
+        <h3 className="text-2xl font-bold text-blue-900 mb-4">
+          Ready to start your healing journey?
+        </h3>
+        <button className="bg-black text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition">
+          Book an Appointment
+        </button>
       </div>
     </div>
   );
