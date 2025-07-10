@@ -7,6 +7,7 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import AllMessages from "./pages/AllMessages";
 
 export default function App() {
   return (
@@ -16,11 +17,13 @@ export default function App() {
       <main className="flex-grow">
         <ScrollToTop/>
         <Routes>
-          
+           
+         
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin/messages" element={<AllMessages />} />
         </Routes>
       </main>
 

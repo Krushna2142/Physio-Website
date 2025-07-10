@@ -1,66 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
-  return (
-    <div className="w-screen min-h-screen pt-28 pb-20 px-10 bg-gradient-to-br from-purple-100 to-blue-100 text-gray-800 overflow-x-hidden">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-5xl font-bold text-blue-900 mb-12 text-center">
-          Contact Us
-        </h2>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-        <div className="bg-white/70 backdrop-blur-md rounded-2xl shadow-2xl p-12">
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Full Name */}
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await axios.post("http://localhost:5000/api/contact", formData);
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError("❌ Failed to send message. Try again.");
+    }
+  };
+
+  return (
+    <div className="w-screen h-screen bg-gradient-to-br from-blue-100 to-white flex items-center justify-center px-4">
+      <div className="bg-white rounded-xl shadow-lg w-full max-w-3xl p-10">
+        <h1 className="text-5xl font-bold text-center text-blue-700 mb-8">
+          Contact Us
+        </h1>
+
+        {submitted ? (
+          <p className="text-center text-green-600 text-lg font-medium">
+            ✅ Thank you! Your message has been sent.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold mb-2">Full Name</label>
+              <label className="block mb-1 font-semibold text-gray-700">
+                Name
+              </label>
               <input
                 type="text"
-                placeholder="Enter your name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring focus:border-blue-500 text-black"
               />
             </div>
-
-            {/* Email */}
             <div>
-              <label className="block text-sm font-semibold mb-2">Email</label>
+              <label className="block mb-1 font-semibold text-gray-700">
+                Email
+              </label>
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring focus:border-blue-500 text-black"
               />
             </div>
-
-            {/* Subject */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-semibold mb-2">Subject</label>
-              <input
-                type="text"
-                placeholder="What's the purpose of your message?"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            {/* Message */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-semibold mb-2">Message</label>
+            <div>
+              <label className="block mb-1 font-semibold text-gray-700">
+                Message
+              </label>
               <textarea
-                rows="6"
-                placeholder="Write your message here..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                name="message"
+                required
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded px-4 py-2 resize-none focus:ring focus:border-blue-500 text-black"
               ></textarea>
             </div>
 
-            {/* Button */}
-            <div className="md:col-span-2 text-center">
-              <button
-                type="submit"
-                className="bg-blue-800 text-white px-10 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-900 transition-all"
-              >
-                Send Message
-              </button>
-            </div>
+            {error && <p className="text-red-600">{error}</p>}
+
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded w-full"
+            >
+              Send Message
+            </button>
           </form>
-        </div>
+        )}
       </div>
     </div>
   );
