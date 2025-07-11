@@ -9,7 +9,7 @@ const AllMessages = () => {
 
   const fetchMessages = async () => {
     try {
-      const token = localStorage.getItem("adminToken");
+      const token = localStorage.getItem("token");
       const res = await axios.get("http://localhost:5000/api/contact/messages", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const AllMessages = () => {
           <div className="text-red-600 text-sm mb-4 font-semibold">{error}</div>
         )}
 
-        <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+        <div className="overflow-x-auto bg-white shadow-md rounded-lg ">
           <table className="w-full table-auto text-left">
             <thead className="bg-blue-600 text-white">
               <tr>
