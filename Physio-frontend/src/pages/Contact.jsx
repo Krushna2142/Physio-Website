@@ -19,7 +19,7 @@ const Contact = () => {
     setSuccessMessage("");
 
     try {
-      await axios.post("https://physio-website.onrender.com/api/contact", formData);
+     await axios.post("https://physio-website.onrender.com/api/contact", formData);
       setSuccessMessage("✅ Thank you! Your message has been sent.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
