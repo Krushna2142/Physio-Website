@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
+import AdminPatients from "./pages/AdminPatients";
+import AdminAppointments from "./pages/AdminAppointments";
+import AdminSettings from "./pages/AdminSettings";
 
 export default function App() {
   return (
@@ -26,6 +29,9 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/patients" element={<AdminPatients />} />
+          <Route path="/admin/appointments" element={<AdminAppointments />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
           
         </Routes>
       </main>
