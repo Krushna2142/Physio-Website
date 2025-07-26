@@ -27,14 +27,14 @@ export default function Home() {
   }, [images.length]);
 
   return (
-    <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
+    <div className="w-screen min-h-screen px-4 sm:px-8 md:px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="flex justify-between items-center mb-20">
-        <div className="w-1/2 pr-10">
-          <h1 className="text-5xl font-bold text-blue-900 mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-10 md:mb-20 gap-6">
+        <div className="w-full md:w-1/2 md:pr-10 mb-6 md:mb-0">
+          <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-6">
             Revive. Restore. Rejuvenate.
           </h1>
-          <p className="text-xl mb-8">
+          <p className="text-base md:text-xl mb-8">
             Personalized physiotherapy solutions for a pain-free and active life.
           </p>
           <button
@@ -44,21 +44,21 @@ export default function Home() {
             Book an Appointment
           </button>
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2 flex justify-center">
           <img
             src={images[currentIndex]}
             alt="Clinic"
-            className="w-full h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-full mx-auto h-56 sm:h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
           />
         </div>
       </div>
 
       {/* Testimonials Section */}
       <section className="my-20 w-full">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10">
           What Our Patients Say
         </h2>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               name: "Amit Sharma",
@@ -89,10 +89,10 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10">
           Why Choose PhysioCare?
         </h2>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
           {[
             {
               title: "Experienced Staff",
@@ -111,7 +111,7 @@ export default function Home() {
               key={idx}
               className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition"
             >
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+              <h3 className="text-lg sm:text-xl font-semibold text-blue-800 mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-700">{item.desc}</p>
@@ -122,14 +122,14 @@ export default function Home() {
 
       {/* Our Experts Section */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10">
           Meet Our Experts
         </h2>
-        <div className="flex gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
           {[1, 2, 3].map((id) => (
             <div
               key={id}
-              className="bg-white p-6 rounded-xl shadow text-center w-1/3"
+              className="bg-white p-6 rounded-xl shadow text-center"
             >
               <img
                 src={`https://randomuser.me/api/portraits/women/${id + 30}.jpg`}
@@ -146,29 +146,29 @@ export default function Home() {
       </section>
 
       {/* 📊 Counters Section */}
-      <section className="mb-20 grid grid-cols-3 gap-10 text-center">
+      <section className="mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 text-center">
         {[
           { label: "Happy Patients", value: "1200+" },
           { label: "Years of Experience", value: "10+" },
           { label: "Therapists", value: "15+" },
         ].map((stat, idx) => (
-          <div key={idx} className="bg-white p-10 rounded-xl shadow">
-            <p className="text-5xl font-bold text-purple-700">{stat.value}</p>
-            <p className="mt-2 text-gray-600 text-lg">{stat.label}</p>
+          <div key={idx} className="bg-white p-8 sm:p-10 rounded-xl shadow">
+            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-700">{stat.value}</p>
+            <p className="mt-2 text-gray-600 text-base sm:text-lg">{stat.label}</p>
           </div>
         ))}
       </section>
 
       {/* 🖼️ Gallery Preview */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">Gallery</h2>
-        <div className="grid grid-cols-4 gap-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-900 mb-10">Gallery</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {images.slice(0, 4).map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`Preview ${idx}`}
-              className="h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
+              className="h-32 sm:h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
             />
           ))}
         </div>
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* 📣 Final Call to Action */}
       <section className="text-center mt-20">
-        <h2 className="text-3xl font-bold text-purple-800 mb-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 mb-4">
           Begin your recovery journey today!
         </h2>
         <button

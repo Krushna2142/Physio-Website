@@ -29,14 +29,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
-      <h1 className="text-4xl font-bold text-blue-700 mb-10 text-center px-165 pt-20">Contact Us</h1>
+    <div className="min-h-screen bg-gray-100 py-10 px-4 sm:px-8 md:px-16">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-700 mb-10 text-center pt-10">
+        Contact Us
+      </h1>
 
-      <div className="w-full flex flex-col items-center gap-10 px-70 ">
+      <div className="flex flex-col items-center gap-10">
         {/* Contact Form */}
         <form
           onSubmit={handleSubmit}
-          className="w-full lg:w-3/4 bg-white p-8 shadow-md rounded-lg"
+          className="w-full max-w-xl bg-white p-6 sm:p-8 shadow-md rounded-lg"
         >
           <div className="mb-6">
             <label className="block text-gray-800 font-medium mb-2">Name</label>
@@ -90,7 +92,7 @@ const Contact = () => {
         </form>
 
         {/* Google Map */}
-        <div className="w-full lg:w-3/4 h-[400px] rounded-lg overflow-hidden shadow-md">
+        <div className="w-full max-w-xl h-64 sm:h-96 rounded-lg overflow-hidden shadow-md">
           <iframe
             title="Google Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.590591965655!2d73.84759511489157!3d18.506679787408144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c069db43f351%3A0xa5a2340b918f2e6a!2sAISSMS%20Polytechnic!5e0!3m2!1sen!2sin!4v1628763361817!5m2!1sen!2sin"
