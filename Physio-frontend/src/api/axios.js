@@ -1,12 +1,10 @@
+// src/api/axios.js or src/api/contactApi.js
 const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
-
 export const sendContactForm = async (data) => {
   try {
     const res = await fetch(`${BASE_URL}/contact`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
     return await res.json();

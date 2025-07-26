@@ -43,6 +43,7 @@ app.use(
 // Routes
 app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/admin/login", adminRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
