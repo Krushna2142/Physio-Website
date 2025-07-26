@@ -1,19 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {
-  submitContact,
-  getAllMessages,
-  deleteMessage,
-} = require("../controllers/contactController");
-const verifyToken = require("../middleware/authMiddleware");
+const { submitContact } = require("../controllers/contactController");
 
 // Public contact form submission
-router.post("/api/contact", submitContact);
-
-// Admin: Get all messages
-router.get("/api/admin/messages", verifyToken, getAllMessages);
-
-// Admin: Delete a message
-router.delete("/api/admin/messages/:id", verifyToken, deleteMessage);
+router.post("/", submitContact);
 
 module.exports = router;
