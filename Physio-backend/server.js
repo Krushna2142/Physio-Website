@@ -29,7 +29,11 @@ app.use(
         fontSrc: ["'self'", "data:", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-        connectSrc: ["'self'", "http://localhost:5173", "http://localhost:5000"],
+        connectSrc: [
+          "'self'",
+          "https://physio-website-estng9idk-krushna2142s-projects.vercel.app",
+          "https://your-backend.onrender.com" // Use your actual backend URL here
+        ],
         imgSrc: ["'self'", "data:", "blob:"],
       },
     },
