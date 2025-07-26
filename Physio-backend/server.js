@@ -19,8 +19,11 @@ app.use((req, res, next) => {
 
 // --- CORS ---
 app.use(cors({
-  origin: 'https://physio-website-estng9idk-krushna2142s-projects.vercel.app',
-  methods: ['POST', 'GET', 'OPTIONS'],
+  origin: [
+    'https://physio-website-estng9idk-krushna2142s-projects.vercel.app',
+    // Add other domains as needed
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'],
 }));
 
 app.use(express.json());
