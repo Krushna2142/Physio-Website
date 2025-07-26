@@ -24,8 +24,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="https://physio-website-estng9idk-krushna2142s-projects.vercel.app/admin/messages" element={<AllMessages />} />
-          <Route path="https://physio-website-estng9idk-krushna2142s-projects.vercel.app/admin/login" element={<AdminLogin />} />
+          <Route path="/admin/messages" element={<AllMessages />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </main>
 
