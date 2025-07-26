@@ -5,23 +5,39 @@ export default function AdminMessages() {
   const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("admin_token");
+    // Use a consistent token key
+    const token = localStorage.getItem("adminToken");
     if (!token) {
       navigate("/admin-login");
       return;
     }
+
     // Fetch contact messages
     fetch("https://physio-website.onrender.com/api/admin/messages", {
-      headers: { Authorization: `Bearer ${token}` }
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || "Failed to fetch messages.");
+        }
+        return res.json();
+      })
+      .then((data) => {
         setMessages(data);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        setError("Could not fetch messages. You may not be logged in, or your session expired.",err);
+        setLoading(false);
+      });
   }, [navigate]);
 
   return (
@@ -32,6 +48,8 @@ export default function AdminMessages() {
         </h2>
         {loading ? (
           <div className="text-center text-gray-500">Loading...</div>
+        ) : error ? (
+          <div className="text-center text-red-500">{error}</div>
         ) : messages.length === 0 ? (
           <div className="text-center text-gray-500">No messages found.</div>
         ) : (
@@ -47,11 +65,15 @@ export default function AdminMessages() {
               </thead>
               <tbody>
                 {messages.map((msg, idx) => (
-                  <tr key={idx}>
+                  <tr key={msg._id || idx}>
                     <td className="px-4 py-2 border">{msg.name}</td>
                     <td className="px-4 py-2 border">{msg.email}</td>
                     <td className="px-4 py-2 border">{msg.message}</td>
-                    <td className="px-4 py-2 border">{new Date(msg.date).toLocaleString()}</td>
+                    <td className="px-4 py-2 border">
+                      {msg.date
+                        ? new Date(msg.date).toLocaleString()
+                        : "N/A"}
+                    </td>
                   </tr>
                 ))}
               </tbody>
