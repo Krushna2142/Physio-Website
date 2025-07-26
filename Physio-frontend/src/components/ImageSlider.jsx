@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 const images = [
-    "./images/physio1.jpg",
-    "./images/physio2.jpg",
-    "./images/physio3.jpg",
-    "./images/physio4.jpg",
-    "./images/pexels1.jpg",
-    "./images/pexels2.jpg", 
-    "./images/pexels3.jpg",
-    "./images/pexels4.jpg",
-    "./images/pexels5.jpg",
+    "./images/physio1.webp",
+    "./images/physio2.webp",
+    "./images/physio3.webp",
+    "./images/physio4.webp",
+    "./images/pexels1.webp",
+    "./images/pexels2.webp", 
+    "./images/pexels3.webp",
+    "./images/pexels4.webp",
+    "./images/pexels5.webp",
 ];
 
 export default function ImageSlider() {

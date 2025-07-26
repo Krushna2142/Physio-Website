@@ -12,6 +12,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminPatients from "./pages/AdminPatients";
 import AdminAppointments from "./pages/AdminAppointments";
 import AdminSettings from "./pages/AdminSettings";
+import AdminMessages from "./pages/AdminMessages";
 
 export default function App() {
   return (
@@ -32,7 +33,7 @@ export default function App() {
           <Route path="/admin/patients" element={<AdminPatients />} />
           <Route path="/admin/appointments" element={<AdminAppointments />} />
           <Route path="/admin/settings" element={<AdminSettings />} />
-          
+          <Route path="/admin/messages" element={<AdminMessages />} />
         </Routes>
       </main>
 

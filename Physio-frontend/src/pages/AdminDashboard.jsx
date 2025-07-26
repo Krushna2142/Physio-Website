@@ -15,7 +15,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="flex flex-col items-center min-h-[70vh] bg-gradient-to-br from-indigo-50 to-purple-50 py-10">
-      <div className="bg-white shadow-2xl rounded-xl w-full max-w-3xl px-8 mt-16 py-10">
+      <div className="bg-white shadow-2xl rounded-xl w-full max-w-3xl px-8 py-10 mt-16">
         <h2 className="text-3xl font-extrabold text-indigo-700 mb-3 text-center">
           Welcome, Admin!
         </h2>
@@ -24,7 +24,6 @@ export default function AdminDashboard() {
         </p>
 
         {/* Dashboard Summary Cards */}
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-indigo-100 p-6 rounded-lg shadow text-center">
             <div className="text-2xl font-bold text-indigo-700 mb-2">54</div>
@@ -40,7 +39,7 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Management Sections with Links */}
+        {/* Management Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div className="bg-white border rounded-lg p-6 shadow">
             <h3 className="text-xl font-bold text-indigo-600 mb-2">Manage Patients</h3>

@@ -5,15 +5,15 @@ export default function Home() {
   const navigate = useNavigate();
 
   const images = [
-    "./images/physio1.jpg",
-    "./images/physio2.jpg",
-    "./images/physio3.jpg",
-    "./images/physio4.jpg",
-    "./images/pexels1.jpg",
-    "./images/pexels2.jpg",
-    "./images/pexels3.jpg",
-    "./images/pexels4.jpg",
-    "./images/pexels5.jpg",
+    "./images/physio1.webp",
+    "./images/physio2.webp",
+    "./images/physio3.webp",
+    "./images/physio4.webp",
+    "./images/pexels1.webp",
+    "./images/pexels2.webp",
+    "./images/pexels3.webp",
+    "./images/pexels4.webp",
+    "./images/pexels5.webp",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -132,7 +132,7 @@ export default function Home() {
               className="bg-white p-6 rounded-xl shadow text-center"
             >
               <img
-                src={`https://randomuser.me/api/portraits/women/${id + 30}.jpg`}
+                src={`https://randomuser.me/api/portraits/women/${id + 30}.webp`}
                 alt="Expert"
                 className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
               />
