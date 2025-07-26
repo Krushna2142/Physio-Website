@@ -1,30 +1,34 @@
 import { useEffect, useState } from "react";
-import React from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function AdminDashboard() {
-  const [messages, setMessages] = useState([]);
-  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const [admin, setAdmin] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem("admin_token");
     if (!token) {
-      window.location.href = "/admin-login";
+      navigate("/admin-login");
       return;
     }
-    fetch("https://physio-website.onrender.com/api/contact/messages", {
-      headers: { "Authorization": "Bearer " + token }
-    })
-      .then(res => res.json())
-      .then(data => setMessages(data))
-      .catch(err => setError("Failed to load messages",err));
-  }, []);
+    // Optionally, fetch user data
+    setAdmin({ email: "admin@example.com" }); // Replace with real data if needed
+  }, [navigate]);
+
   return (
-    <div>
-      <h2>Contact Messages</h2>
-      {error && <div>{error}</div>}
-      <ul>
-        {messages.map(msg => (
-          <li key={msg._id}>{msg.name}: {msg.message}</li>
-        ))}
-      </ul>
+    <div style={{ maxWidth: 800, margin: "40px auto", background: "#fff", padding: 32, borderRadius: 8, boxShadow: "0 2px 12px #0002" }}>
+      <h2>Welcome to Admin Dashboard</h2>
+      <p>Hello, {admin?.email || "Admin"}!</p>
+      {/* Add dashboard features here */}
+      <button
+        onClick={() => {
+          localStorage.removeItem("admin_token");
+          navigate("/admin-login");
+        }}
+        style={{ padding: 8, borderRadius: 4, background: "#ef4444", color: "#fff", border: "none" }}
+      >
+        Logout
+      </button>
     </div>
   );
 }
