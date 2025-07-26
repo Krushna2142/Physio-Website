@@ -10,8 +10,6 @@ export default function AdminDashboard() {
     if (!token) {
       navigate("/admin-login");
     }
-    // You can fetch admin details using the token here, if your backend supports it.
-    // For demo, we just set a dummy email:
     setAdminEmail("admin@physiocare.com");
   }, [navigate]);
 
@@ -26,6 +24,7 @@ export default function AdminDashboard() {
         </p>
 
         {/* Dashboard Summary Cards */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-indigo-100 p-6 rounded-lg shadow text-center">
             <div className="text-2xl font-bold text-indigo-700 mb-2">54</div>
@@ -41,19 +40,25 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Management Sections */}
+        {/* Management Sections with Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div className="bg-white border rounded-lg p-6 shadow">
             <h3 className="text-xl font-bold text-indigo-600 mb-2">Manage Patients</h3>
             <p className="text-gray-500 mb-3">View, edit, or add patient records.</p>
-            <button className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition text-sm">
+            <button
+              className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition text-sm"
+              onClick={() => navigate("/admin/patients")}
+            >
               Go to Patients
             </button>
           </div>
           <div className="bg-white border rounded-lg p-6 shadow">
             <h3 className="text-xl font-bold text-purple-600 mb-2">Manage Appointments</h3>
             <p className="text-gray-500 mb-3">Review and schedule appointments.</p>
-            <button className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-sm">
+            <button
+              className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-sm"
+              onClick={() => navigate("/admin/appointments")}
+            >
               Go to Appointments
             </button>
           </div>
@@ -63,7 +68,10 @@ export default function AdminDashboard() {
         <div className="bg-white border rounded-lg p-6 shadow mb-8">
           <h3 className="text-xl font-bold text-blue-600 mb-2">Site Settings</h3>
           <p className="text-gray-500 mb-3">Update clinic info, admin settings, etc.</p>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm">
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm"
+            onClick={() => navigate("/admin/settings")}
+          >
             Go to Settings
           </button>
         </div>
