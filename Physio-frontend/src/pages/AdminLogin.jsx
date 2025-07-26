@@ -27,9 +27,9 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 flex justify-center items-center px-150 py-8">
-      <div className="bg-white shadow-lg rounded-lg w-full max-w-lg p-8">
-        <h2 className="text-3xl font-bold text-center mb-6 text-blue-700 pt-5">Admin Login</h2>
+    <div className="min-h-screen w-full bg-gray-100 flex justify-center items-center px-4 py-8">
+      <div className="bg-white shadow-lg rounded-lg w-full max-w-md mx-auto p-6 md:p-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 text-blue-700 pt-5">Admin Login</h2>
 
         {error && <p className="text-red-600 text-center mb-4">{error}</p>}
 

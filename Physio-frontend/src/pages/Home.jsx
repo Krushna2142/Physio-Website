@@ -27,14 +27,14 @@ export default function Home() {
   }, [images.length]);
 
   return (
-    <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
+    <div className="w-screen min-h-screen px-4 md:px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="flex justify-between items-center mb-20">
-        <div className="w-1/2 pr-10">
-          <h1 className="text-5xl font-bold text-blue-900 mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center mb-20 gap-8">
+        <div className="w-full md:w-1/2 md:pr-10 text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-6">
             Revive. Restore. Rejuvenate.
           </h1>
-          <p className="text-xl mb-8">
+          <p className="text-lg md:text-xl mb-8">
             Personalized physiotherapy solutions for a pain-free and active life.
           </p>
           <button
@@ -44,21 +44,21 @@ export default function Home() {
             Book an Appointment
           </button>
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2">
           <img
             src={images[currentIndex]}
             alt="Clinic"
-            className="w-full h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
+            className="w-full h-60 md:h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
           />
         </div>
       </div>
 
       {/* Testimonials Section */}
       <section className="my-20 w-full">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-10 text-center md:text-left">
           What Our Patients Say
         </h2>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {[
             {
               name: "Amit Sharma",
@@ -89,10 +89,10 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-10 text-center md:text-left">
           Why Choose PhysioCare?
         </h2>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[
             {
               title: "Experienced Staff",
@@ -122,14 +122,14 @@ export default function Home() {
 
       {/* Our Experts Section */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-10 text-center md:text-left">
           Meet Our Experts
         </h2>
-        <div className="flex gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {[1, 2, 3].map((id) => (
             <div
               key={id}
-              className="bg-white p-6 rounded-xl shadow text-center w-1/3"
+              className="bg-white p-6 rounded-xl shadow text-center"
             >
               <img
                 src={`https://randomuser.me/api/portraits/women/${id + 30}.jpg`}
@@ -146,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* 📊 Counters Section */}
-      <section className="mb-20 grid grid-cols-3 gap-10 text-center">
+      <section className="mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-center">
         {[
           { label: "Happy Patients", value: "1200+" },
           { label: "Years of Experience", value: "10+" },
@@ -161,14 +161,14 @@ export default function Home() {
 
       {/* 🖼️ Gallery Preview */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">Gallery</h2>
-        <div className="grid grid-cols-4 gap-4">
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-10 text-center md:text-left">Gallery</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {images.slice(0, 4).map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`Preview ${idx}`}
-              className="h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
+              className="h-32 md:h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
             />
           ))}
         </div>
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* 📣 Final Call to Action */}
       <section className="text-center mt-20">
-        <h2 className="text-3xl font-bold text-purple-800 mb-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-purple-800 mb-4">
           Begin your recovery journey today!
         </h2>
         <button

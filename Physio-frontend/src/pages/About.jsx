@@ -5,12 +5,12 @@ export default function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-purple-50 to-blue-100 text-gray-800">
+    <div className="w-screen min-h-screen px-4 md:px-16 pt-28 pb-20 bg-gradient-to-br from-purple-50 to-blue-100 text-gray-800">
       {/* Header */}
-      <h1 className="text-5xl font-bold text-blue-900 mb-8">About PhysioCare</h1>
+      <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-8 text-center md:text-left">About PhysioCare</h1>
 
       {/* Introduction */}
-      <p className="text-lg mb-10 max-w-4xl">
+      <p className="text-base md:text-lg mb-10 max-w-4xl">
         PhysioCare is a dedicated physiotherapy clinic committed to helping you
         live a pain-free, active, and fulfilling life. Our expert team uses
         advanced techniques to treat injuries, manage chronic pain, and enhance
@@ -18,7 +18,7 @@ export default function About() {
       </p>
 
       {/* Mission and Vision */}
-      <div className="grid grid-cols-2 gap-10 mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="text-2xl font-bold text-blue-800 mb-2">Our Mission</h2>
           <p>
@@ -37,8 +37,8 @@ export default function About() {
 
       {/* Core Values */}
       <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-8">Our Core Values</h2>
-        <div className="grid grid-cols-3 gap-8">
+        <h2 className="text-2xl md:text-4xl font-bold text-blue-900 mb-8 text-center md:text-left">Our Core Values</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {[
             {
               title: "Compassion",
@@ -65,11 +65,11 @@ export default function About() {
 
       {/* Call to Action */}
       <div className="text-center mt-10">
-        <h3 className="text-2xl font-bold text-blue-900 mb-4">
+        <h3 className="text-xl md:text-2xl font-bold text-blue-900 mb-4">
           Ready to start your healing journey?
         </h3>
        <button onClick={() => navigate("/contact")}
-         className="bg-black text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-800 transition border-2 border-white"
+         className="bg-black text-white px-6 py-3 rounded-lg text-base md:text-lg font-semibold hover:bg-gray-800 transition border-2 border-white"
 >
   Book an Appointment
 </button>
