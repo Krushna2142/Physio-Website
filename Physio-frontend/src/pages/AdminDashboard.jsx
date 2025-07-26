@@ -74,7 +74,17 @@ export default function AdminDashboard() {
             Go to Settings
           </button>
         </div>
-
+        {/* Messages Section */}
+        <div className="bg-white border rounded-lg p-6 shadow mb-8">
+          <h3 className="text-xl font-bold text-blue-600 mb-2">Patient Messages</h3>
+          <p className="text-gray-500 mb-3">View and respond to patient inquiries.</p>
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-sm"
+            onClick={() => navigate("/admin/messages")}
+          >
+            See Messages
+          </button>
+        </div>
         {/* Logout */}
         <div className="flex justify-center">
           <button
