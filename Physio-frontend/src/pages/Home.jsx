@@ -27,38 +27,38 @@ export default function Home() {
   }, [images.length]);
 
   return (
-    <div className="w-screen min-h-screen px-16 pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
+    <div className="w-full min-h-screen px-4 md:px-8 lg:px-16 pt-20 md:pt-28 pb-20 bg-gradient-to-br from-blue-100 to-purple-100 text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="flex justify-between items-center mb-20">
-        <div className="w-1/2 pr-10">
-          <h1 className="text-5xl font-bold text-blue-900 mb-6">
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-12 md:mb-20 gap-8">
+        <div className="w-full lg:w-1/2 lg:pr-10 text-center lg:text-left">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4 md:mb-6">
             Revive. Restore. Rejuvenate.
           </h1>
-          <p className="text-xl mb-8">
+          <p className="text-lg md:text-xl mb-6 md:mb-8">
             Personalized physiotherapy solutions for a pain-free and active life.
           </p>
           <button
             onClick={() => navigate("/contact")}
-            className="bg-black text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition"
+            className="bg-black text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition w-full sm:w-auto"
           >
             Book an Appointment
           </button>
         </div>
-        <div className="w-1/2">
+        <div className="w-full lg:w-1/2">
           <img
             src={images[currentIndex]}
             alt="Clinic"
-            className="w-full h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
+            className="w-full h-60 md:h-80 rounded-2xl object-cover shadow-xl transition-all duration-500"
           />
         </div>
       </div>
 
       {/* Testimonials Section */}
-      <section className="my-20 w-full">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+      <section className="my-12 md:my-20 w-full">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-6 md:mb-10 text-center lg:text-left">
           What Our Patients Say
         </h2>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               name: "Amit Sharma",
@@ -88,11 +88,11 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+      <section className="mb-12 md:mb-20">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-6 md:mb-10 text-center lg:text-left">
           Why Choose PhysioCare?
         </h2>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {[
             {
               title: "Experienced Staff",
@@ -111,7 +111,7 @@ export default function Home() {
               key={idx}
               className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition"
             >
-              <h3 className="text-xl font-semibold text-blue-800 mb-2">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-800 mb-2">
                 {item.title}
               </h3>
               <p className="text-gray-700">{item.desc}</p>
@@ -121,20 +121,20 @@ export default function Home() {
       </section>
 
       {/* Our Experts Section */}
-      <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">
+      <section className="mb-12 md:mb-20">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-6 md:mb-10 text-center lg:text-left">
           Meet Our Experts
         </h2>
-        <div className="flex gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {[1, 2, 3].map((id) => (
             <div
               key={id}
-              className="bg-white p-6 rounded-xl shadow text-center w-1/3"
+              className="bg-white p-6 rounded-xl shadow text-center"
             >
               <img
                 src={`https://randomuser.me/api/portraits/women/${id + 30}.jpg`}
                 alt="Expert"
-                className="rounded-full mx-auto mb-4 w-24 h-24 object-cover"
+                className="rounded-full mx-auto mb-4 w-20 h-20 md:w-24 md:h-24 object-cover"
               />
               <h3 className="text-lg font-bold text-blue-800">
                 Dr. Smitha Patel
@@ -145,43 +145,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 📊 Counters Section */}
-      <section className="mb-20 grid grid-cols-3 gap-10 text-center">
+      {/* Counters Section */}
+      <section className="mb-12 md:mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 text-center">
         {[
           { label: "Happy Patients", value: "1200+" },
           { label: "Years of Experience", value: "10+" },
           { label: "Therapists", value: "15+" },
         ].map((stat, idx) => (
-          <div key={idx} className="bg-white p-10 rounded-xl shadow">
-            <p className="text-5xl font-bold text-purple-700">{stat.value}</p>
-            <p className="mt-2 text-gray-600 text-lg">{stat.label}</p>
+          <div key={idx} className="bg-white p-8 md:p-10 rounded-xl shadow">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-700">{stat.value}</p>
+            <p className="mt-2 text-gray-600 text-base md:text-lg">{stat.label}</p>
           </div>
         ))}
       </section>
 
-      {/* 🖼️ Gallery Preview */}
-      <section className="mb-20">
-        <h2 className="text-4xl font-bold text-blue-900 mb-10">Gallery</h2>
-        <div className="grid grid-cols-4 gap-4">
+      {/* Gallery Preview */}
+      <section className="mb-12 md:mb-20">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-blue-900 mb-6 md:mb-10 text-center lg:text-left">Gallery</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {images.slice(0, 4).map((img, idx) => (
             <img
               key={idx}
               src={img}
               alt={`Preview ${idx}`}
-              className="h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
+              className="h-32 md:h-40 w-full object-cover rounded-xl shadow hover:scale-105 transition"
             />
           ))}
         </div>
       </section>
 
-      {/* 📣 Final Call to Action */}
-      <section className="text-center mt-20">
-        <h2 className="text-3xl font-bold text-purple-800 mb-4">
+      {/* Final Call to Action */}
+      <section className="text-center mt-12 md:mt-20">
+        <h2 className="text-2xl md:text-3xl font-bold text-purple-800 mb-4">
           Begin your recovery journey today!
         </h2>
         <button
           onClick={() => navigate("/contact")}
-          className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-4 rounded-full shadow-lg transition"
+          className="bg-purple-700 hover:bg-purple-800 text-white px-6 md:px-8 py-3 md:py-4 rounded-full shadow-lg transition w-full sm:w-auto"
         >
           Contact Us
         </button>
