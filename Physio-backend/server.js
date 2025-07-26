@@ -32,7 +32,7 @@ app.use(
         connectSrc: [
           "'self'",
           "https://physio-website-estng9idk-krushna2142s-projects.vercel.app",
-          "https://your-backend.onrender.com" // Use your actual backend URL here
+          "https://physio-website.onrender.com"
         ],
         imgSrc: ["'self'", "data:", "blob:"],
       },
