@@ -9,6 +9,7 @@ const Contact = () => {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // NEW
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,14 +18,20 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessMessage("");
+    setErrorMessage(""); // Clear previous errors
 
     try {
-     await axios.post("https://physio-website.onrender.com/api/contact", formData);
+      await axios.post("https://physio-website.onrender.com/api/contact", formData);
       setSuccessMessage("✅ Thank you! Your message has been sent.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      // Handle errors returned by backend
+      if (error.response && error.response.data && error.response.data.error) {
+        setErrorMessage("❌ " + error.response.data.error);
+      } else {
+        setErrorMessage("❌ Failed to send message. Try again.");
+      }
       console.error("Error sending message:", error);
-      setSuccessMessage("❌ Failed to send message. Try again.");
     }
   };
 
@@ -79,6 +86,12 @@ const Contact = () => {
             ></textarea>
           </div>
 
+          {/* Show error message if any */}
+          {errorMessage && (
+            <div className="mb-4 text-red-600 font-semibold">{errorMessage}</div>
+          )}
+
+          {/* Show success message if any */}
           {successMessage && (
             <div className="mb-4 text-green-600 font-semibold">{successMessage}</div>
           )}
