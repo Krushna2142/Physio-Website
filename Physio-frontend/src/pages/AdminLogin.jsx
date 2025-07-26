@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
@@ -19,7 +19,6 @@ export default function AdminLogin() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-
       const data = await res.json();
 
       if (data.token) {
@@ -35,33 +34,33 @@ export default function AdminLogin() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "40px auto", background: "#fff", padding: 32, borderRadius: 8, boxShadow: "0 2px 12px #0002" }}>
-      <h2 style={{ textAlign: "center" }}>Admin Login</h2>
-      <form onSubmit={handleLogin}>
-        <div style={{ marginBottom: 16 }}>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            style={{ width: "100%", padding: 8, borderRadius: 4, border: "1px solid #ccc" }}
-          />
-        </div>
-        <div style={{ marginBottom: 16 }}>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-            style={{ width: "100%", padding: 8, borderRadius: 4, border: "1px solid #ccc" }}
-          />
-        </div>
-        <button type="submit" disabled={loading} style={{ width: "100%", padding: 10, borderRadius: 4, background: "#7c3aed", color: "#fff", border: "none", fontWeight: "bold" }}>
+    <div className="flex justify-center items-center min-h-[70vh]">
+      <form onSubmit={handleLogin} className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          className="w-full mb-4 px-4 py-2 border rounded"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="w-full mb-4 px-4 py-2 border rounded"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full py-2 bg-indigo-600 text-white rounded font-semibold hover:bg-indigo-700 transition"
+        >
           {loading ? "Logging in..." : "Login"}
         </button>
-        {error && <div style={{ color: "red", marginTop: 12, textAlign: "center" }}>{error}</div>}
+        {error && <div className="text-red-600 mt-4 text-center">{error}</div>}
       </form>
     </div>
   );
