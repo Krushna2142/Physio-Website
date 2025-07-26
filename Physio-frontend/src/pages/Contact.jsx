@@ -9,7 +9,7 @@ const Contact = () => {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // NEW
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,20 +18,33 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccessMessage("");
-    setErrorMessage(""); // Clear previous errors
-
+    setErrorMessage("");
     try {
-      await axios.post("https://physio-website.onrender.com/api/contact", formData);
+      // eslint-disable-next-line no-unused-vars
+      const response = await axios.post(
+        "https://physio-website.onrender.com/api/contact",
+        formData,
+        { headers: { "Content-Type": "application/json" } }
+      );
       setSuccessMessage("✅ Thank you! Your message has been sent.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      // Handle errors returned by backend
-      if (error.response && error.response.data && error.response.data.error) {
-        setErrorMessage("❌ " + error.response.data.error);
+      if (error.response && error.response.data) {
+        // Show backend error message if available
+        setErrorMessage(
+          "❌ " +
+            (error.response.data.error ||
+              error.response.data.message ||
+              "Failed to send message. Try again.")
+        );
+        console.error("Backend error response:", error.response.data);
+      } else if (error.request) {
+        setErrorMessage("❌ No response from server. Please try again.");
+        console.error("No response received:", error.request);
       } else {
-        setErrorMessage("❌ Failed to send message. Try again.");
+        setErrorMessage("❌ Error: " + error.message);
+        console.error("Error setting up request:", error.message);
       }
-      console.error("Error sending message:", error);
     }
   };
 
@@ -86,12 +99,10 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          {/* Show error message if any */}
           {errorMessage && (
             <div className="mb-4 text-red-600 font-semibold">{errorMessage}</div>
           )}
 
-          {/* Show success message if any */}
           {successMessage && (
             <div className="mb-4 text-green-600 font-semibold">{successMessage}</div>
           )}
